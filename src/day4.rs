@@ -3,10 +3,8 @@
 
 use std::borrow::Borrow;
 use std::char;
-use std::io::Write;
+use std::io::prelude::*;
 use std::io;
-use std::str::FromStr;
-use std::str;
 use std::string::String;
 
 extern crate md5;
