@@ -8,6 +8,7 @@ mod day7;
 mod day8;
 mod day10;
 mod day12;
+mod day25;
 
 use std::env;
 use std::iter::FromIterator;
@@ -36,5 +37,7 @@ fn main() {
         day10::main();
     } else if arg == 12 {
         day12::main();
+    } else if arg == 25 {
+        day25::main();
     }
 }
