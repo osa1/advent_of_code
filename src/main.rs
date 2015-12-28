@@ -3,6 +3,7 @@ mod day2;
 mod day3;
 mod day4;
 mod day5;
+mod day6;
 mod day7;
 mod day8;
 
@@ -23,6 +24,8 @@ fn main() {
         day4::main();
     } else if arg == 5 {
         day5::main();
+    } else if arg == 6 {
+        day6::main();
     } else if arg == 7 {
         day7::main();
     } else if arg == 8 {
