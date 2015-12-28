@@ -13,6 +13,9 @@ pub fn main() {
         gates.push(parse_gate(line));
     }
 
+    // Ideally we would add a struct field `gate_output: Option<i64>` or
+    // something like that, but I couldn't make it working because of some crazy
+    // lifetime and borrowing errors. So here's a HashMap instead..
     let mut results = HashMap::new();
     println!("output of gate a: {}", gen_output_s(&gates, "a", &mut results));
 }
