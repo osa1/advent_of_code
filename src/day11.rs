@@ -3,10 +3,10 @@
 // This program led to this patch:
 // https://github.com/tomprogrammer/rust-ascii/issues/12
 
-use ascii::AsciiStr;
-use std::borrow::Borrow;
-use ascii::AsciiString;
 use ascii::Ascii;
+use ascii::AsciiStr;
+use ascii::AsciiString;
+use std::borrow::Borrow;
 use std::io::Read;
 use std::io;
 
