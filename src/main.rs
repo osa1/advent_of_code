@@ -13,6 +13,7 @@ mod day9;
 mod day10;
 mod day11;
 mod day12;
+mod day13;
 mod day21;
 mod day23;
 mod day25;
@@ -48,6 +49,8 @@ fn main() {
         day11::main();
     } else if arg == 12 {
         day12::main();
+    } else if arg == 13 {
+        day13::main();
     } else if arg == 21 {
         day21::main();
     } else if arg == 23 {
