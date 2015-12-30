@@ -1,3 +1,5 @@
+extern crate ascii;
+
 mod day1;
 mod day2;
 mod day3;
@@ -7,6 +9,7 @@ mod day6;
 mod day7;
 mod day8;
 mod day10;
+mod day11;
 mod day12;
 mod day21;
 mod day23;
@@ -37,6 +40,8 @@ fn main() {
         day8::main();
     } else if arg == 10 {
         day10::main();
+    } else if arg == 11 {
+        day11::main();
     } else if arg == 12 {
         day12::main();
     } else if arg == 21 {
