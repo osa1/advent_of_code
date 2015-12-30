@@ -1,4 +1,5 @@
 extern crate ascii;
+extern crate permutohedron; // for generating permutations
 
 mod day1;
 mod day2;
@@ -8,6 +9,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 mod day10;
 mod day11;
 mod day12;
@@ -38,6 +40,8 @@ fn main() {
         day7::main();
     } else if arg == 8 {
         day8::main();
+    } else if arg == 9 {
+        day9::main();
     } else if arg == 10 {
         day10::main();
     } else if arg == 11 {
