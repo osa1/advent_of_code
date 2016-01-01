@@ -23,45 +23,20 @@ mod day25;
 use std::env;
 use std::iter::FromIterator;
 
+fn unimplemented() {
+    println!("Not implemented yet.");
+}
+
+static DAYS : [ fn(); 25 ] =
+    [ day1::main, day2::main, day3::main, day4::main, day5::main, day6::main, day7::main,
+      day8::main, day9::main, day10::main, day11::main, day12::main, day13::main, day14::main,
+      unimplemented/*day15::main*/, unimplemented/*day16::main*/, unimplemented/*day17::main*/,
+      unimplemented/*day18::main*/, day19::main, unimplemented/*day20::main*/, day21::main,
+      unimplemented/*day22::main*/, day23::main, unimplemented/*day24::main*/, day25::main ];
+
 fn main() {
     let args = Vec::from_iter(env::args_os());
     let arg : i64 = args[1].clone().into_string().unwrap().parse().unwrap();
 
-    if arg == 1 {
-        day1::main();
-    } else if arg == 2 {
-        day2::main();
-    } else if arg == 3 {
-        day3::main();
-    } else if arg == 4 {
-        day4::main();
-    } else if arg == 5 {
-        day5::main();
-    } else if arg == 6 {
-        day6::main();
-    } else if arg == 7 {
-        day7::main();
-    } else if arg == 8 {
-        day8::main();
-    } else if arg == 9 {
-        day9::main();
-    } else if arg == 10 {
-        day10::main();
-    } else if arg == 11 {
-        day11::main();
-    } else if arg == 12 {
-        day12::main();
-    } else if arg == 13 {
-        day13::main();
-    } else if arg == 14 {
-        day14::main();
-    } else if arg == 19 {
-        day19::main();
-    } else if arg == 21 {
-        day21::main();
-    } else if arg == 23 {
-        day23::main();
-    } else if arg == 25 {
-        day25::main();
-    }
+    DAYS[arg as usize - 1]();
 }
