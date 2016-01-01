@@ -15,6 +15,7 @@ mod day11;
 mod day12;
 mod day13;
 mod day14;
+mod day18;
 mod day19;
 mod day21;
 mod day23;
@@ -31,7 +32,7 @@ static DAYS : [ fn(); 25 ] =
     [ day1::main, day2::main, day3::main, day4::main, day5::main, day6::main, day7::main,
       day8::main, day9::main, day10::main, day11::main, day12::main, day13::main, day14::main,
       unimplemented/*day15::main*/, unimplemented/*day16::main*/, unimplemented/*day17::main*/,
-      unimplemented/*day18::main*/, day19::main, unimplemented/*day20::main*/, day21::main,
+      day18::main, day19::main, unimplemented/*day20::main*/, day21::main,
       unimplemented/*day22::main*/, day23::main, unimplemented/*day24::main*/, day25::main ];
 
 fn main() {
