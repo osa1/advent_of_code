@@ -19,6 +19,7 @@ mod day18;
 mod day19;
 mod day21;
 mod day23;
+mod day24;
 mod day25;
 
 use std::env;
@@ -33,7 +34,7 @@ static DAYS : [ fn(); 25 ] =
       day8::main, day9::main, day10::main, day11::main, day12::main, day13::main, day14::main,
       unimplemented/*day15::main*/, unimplemented/*day16::main*/, unimplemented/*day17::main*/,
       day18::main, day19::main, unimplemented/*day20::main*/, day21::main,
-      unimplemented/*day22::main*/, day23::main, unimplemented/*day24::main*/, day25::main ];
+      unimplemented/*day22::main*/, day23::main, day24::main, day25::main ];
 
 fn main() {
     let args = Vec::from_iter(env::args_os());
