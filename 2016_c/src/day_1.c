@@ -4,6 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "point_map.h"
+
 // How many bytes to read in a fread(stdin, ...)
 #define READ_CHUNK_SIZE 1024
 
@@ -75,10 +77,11 @@ int main()
     // Current direction
     DIRS dir = N;
 
-    int walked_n = 0;
-    int walked_e = 0;
-    int walked_s = 0;
-    int walked_w = 0;
+    point_map*  visiteds   = point_map_new();
+    bool        hq_visited = false;
+    point       hq_pos;
+
+    point current_pos = { .x = 0, .y = 0 };
 
     int i = 0;
     while (i < buf.len)
@@ -110,22 +113,71 @@ int main()
             c = (char)buf.buf[i];
         }
 
-        if (dir == N)
-            walked_n += num;
-        else if (dir == E)
-            walked_e += num;
-        else if (dir == S)
-            walked_s += num;
-        else if (dir == W)
-            walked_w += num;
+        if (!hq_visited)
+        {
+            void* ret;
+            // this is inefficient. good thing advent of code doesn't need
+            // efficient solutions
+            for (int step = 0; step < num; ++step)
+            {
+                if (dir == N)
+                    ++current_pos.y;
+                else if (dir == E)
+                    ++current_pos.x;
+                else if (dir == S)
+                    --current_pos.y;
+                else if (dir == W)
+                    --current_pos.x;
+                else
+                    assert(false);
+
+                if (point_map_lookup(visiteds, current_pos, &ret))
+                {
+                    hq_visited = true;
+                    hq_pos     = current_pos;
+                    // take rest of the steps quickly and stop the loop
+                    if (dir == N)
+                        current_pos.y += num - step - 1;
+                    else if (dir == E)
+                        current_pos.x += num - step - 1;
+                    else if (dir == S)
+                        current_pos.y -= num - step - 1;
+                    else if (dir == W)
+                        current_pos.x -= num - step - 1;
+                    break;
+                }
+                else
+                {
+                    point_map_insert(visiteds, current_pos, NULL);
+                }
+            }
+        }
+        else
+        {
+            // fast path
+            if (dir == N)
+                current_pos.y += num;
+            else if (dir == E)
+                current_pos.x += num;
+            else if (dir == S)
+                current_pos.y -= num;
+            else if (dir == W)
+                current_pos.x -= num;
+        }
     }
 
-    printf("walked_n: %d\n", walked_n);
-    printf("walked_e: %d\n", walked_e);
-    printf("walked_s: %d\n", walked_s);
-    printf("walked_w: %d\n", walked_w);
+    printf("final pos: %d, %d\n", current_pos.x, current_pos.y);
 
-    printf("%d\n", abs(walked_n - walked_s) + abs(walked_e - walked_w));
+    printf("distance from (0, 0): %d\n", abs(current_pos.x) + abs(current_pos.y));
+    if (hq_visited)
+    {
+        printf("distance from hq (%d, %d): %d\n",
+               hq_pos.x, hq_pos.y,
+               abs(current_pos.x - hq_pos.x) + abs(current_pos.y - hq_pos.y));
+        printf("distance from origin (this is the question): %d, %d (%d)\n",
+               hq_pos.x, hq_pos.y, abs(hq_pos.x) + abs(hq_pos.y));
+    }
+
 exit:
     buffer_free(&buf);
     return ret;
