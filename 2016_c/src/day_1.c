@@ -179,6 +179,7 @@ int main()
     }
 
 exit:
+    point_map_free(visiteds);
     buffer_free(&buf);
     return ret;
 }
