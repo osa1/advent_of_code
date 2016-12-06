@@ -1,7 +1,7 @@
 CC:=gcc -std=c99
 
 ALL: point_map_test day_1 day_2 day_2_part_2 \
-	day_3 day_3_part_2 day_4 day_5
+	day_3 day_3_part_2 day_4 day_5 day_6
 
 point_map.o: src/point_map.c src/point_map.h
 	$(CC) $< -c -o $@ -g -Wall
@@ -33,7 +33,10 @@ day_4: src/day_4.c
 day_5: src/day_5.c
 	$(CC) $^ -o $@ -g -Wall -lcrypto
 
+day_6: src/day_6.c common.o
+	$(CC) $^ -o $@ -g -Wall
+
 clean:
 	rm -f day_1 point_map.o point_map_test common.o \
 		day_2 day_2_part_2 day_3 day_3_part_2 day_4 \
-		day_5
+		day_5 day_6
