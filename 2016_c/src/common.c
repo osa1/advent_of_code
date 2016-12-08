@@ -41,4 +41,8 @@ void read_stdin(buffer* buf)
         if (bytes_read < READ_CHUNK_SIZE)
             break;
     }
+
+    // Enable this for easier debugging:
+    // buffer_reserve(buf, 1);
+    // buf->buf[buf->len] = '\0';
 }
