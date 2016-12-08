@@ -9,14 +9,6 @@
 
 typedef enum { N, E, S, W } DIRS;
 
-int mod(int i, int m)
-{
-    int ret = i % m;
-    if (ret < 0)
-        ret += m;
-    return ret;
-}
-
 int main()
 {
     buffer buf;

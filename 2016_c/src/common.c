@@ -46,3 +46,11 @@ void read_stdin(buffer* buf)
     // buffer_reserve(buf, 1);
     // buf->buf[buf->len] = '\0';
 }
+
+int mod(int i, int m)
+{
+    int ret = i % m;
+    if (ret < 0)
+        ret += m;
+    return ret;
+}

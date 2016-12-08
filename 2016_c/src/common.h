@@ -19,4 +19,6 @@ void buffer_reserve(buffer*, int amt);
 
 void read_stdin(buffer* buf);
 
+int mod(int i, int m);
+
 #endif
