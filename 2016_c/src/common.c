@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void buffer_init(buffer* buf, int cap)
 {
@@ -31,6 +32,20 @@ void buffer_reserve(buffer* buf, int amt)
     }
 }
 
+void buffer_push(buffer* buf, uint8_t e)
+{
+    buffer_reserve(buf, 1);
+    buf->buf[buf->len] = e;
+    buf->len++;
+}
+
+void buffer_push_str(buffer* buf, uint8_t* str, int len)
+{
+    buffer_reserve(buf, len);
+    memcpy(buf->buf + buf->len, str, len);
+    buf->len += len;
+}
+
 void read_stdin(buffer* buf)
 {
     for (;;)
@@ -43,8 +58,8 @@ void read_stdin(buffer* buf)
     }
 
     // Enable this for easier debugging:
-    // buffer_reserve(buf, 1);
-    // buf->buf[buf->len] = '\0';
+    buffer_reserve(buf, 1);
+    buf->buf[buf->len] = '\0';
 }
 
 int mod(int i, int m)

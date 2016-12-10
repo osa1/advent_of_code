@@ -166,5 +166,6 @@ int main()
 
     printf("%d\n", ret);
 
+    buffer_free(&input_buf);
     return 0;
 }
