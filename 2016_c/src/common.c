@@ -19,6 +19,7 @@ void buffer_free(buffer* buf)
     free(buf->buf);
 }
 
+static
 void buffer_reserve(buffer* buf, int amt)
 {
     int new_cap = buf->cap;

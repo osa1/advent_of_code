@@ -3,7 +3,7 @@ CC:=gcc -std=c99
 ALL: point_map_test day_1 day_2 day_2_part_2 \
 	day_3 day_3_part_2 day_4 day_5 day_6 day_7 \
 	day_8 day_9 day_9_part_2 day_10 day_12 \
-	queue_test
+	queue_test vector_test
 
 point_map.o: src/point_map.c src/point_map.h
 	$(CC) $< -c -o $@ -g -Wall
@@ -62,8 +62,15 @@ queue.o: src/queue.c src/queue.h
 queue_test: test/queue.c queue.o common.o
 	$(CC) $^ -o $@ -g -Wall
 
+
+vector.o: src/vector.c src/vector.h
+	$(CC) $< -c -o $@ -g -Wall
+
+vector_test: test/vector.c vector.o
+	$(CC) $^ -o $@ -g -Wall
+
 clean:
 	rm -f day_1 point_map.o point_map_test common.o \
 		day_2 day_2_part_2 day_3 day_3_part_2 day_4 \
 		day_5 day_6 day_7 day_8 day_9 day_9_part_2 \
-		day_10 day_12 queue.o queue_test
+		day_10 day_12 queue.o queue_test vector.o vector_test

@@ -15,7 +15,6 @@ typedef struct buffer_
 
 void buffer_init(buffer*, int cap);
 void buffer_free(buffer*);
-void buffer_reserve(buffer*, int amt);
 void buffer_push(buffer*, uint8_t);
 void buffer_push_str(buffer*, uint8_t*, int len);
 
