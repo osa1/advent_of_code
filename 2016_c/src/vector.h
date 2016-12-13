@@ -35,6 +35,12 @@ int vector_bin_search(vector* vec, void* e);
  */
 void vector_insert_sorted(vector* vec, void* e);
 
+typedef int(*cmp_fn)(void*, void*);
+void vector_insert_sorted_by(vector* vec, void* e, cmp_fn);
+int vector_bin_search_by(vector* vec, void* e, cmp_fn);
+
 void vector_print(vector*);
+
+void vector_clone(vector* dst, vector* src);
 
 #endif

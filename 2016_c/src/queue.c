@@ -50,7 +50,7 @@ void queue_push(queue* q, void* e)
 
 void* queue_pop(queue* q)
 {
-    assert(q->len != 0);
+    assert(q->len > 0);
     void* ret = q->buf[q->head];
     q->head = mod(q->head + 1, q->cap);
     --q->len;
