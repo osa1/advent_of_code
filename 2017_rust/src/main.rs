@@ -1,4 +1,5 @@
 mod day1;
+mod day2;
 
 fn main() {
     let mut args = ::std::env::args();
@@ -9,6 +10,8 @@ fn main() {
     match day {
         1 =>
             day1::run(),
+        2 =>
+            day2::run(),
         _ =>
             panic!("Day {} not implemented yet", day),
     }
