@@ -1,5 +1,9 @@
+#![feature(entry_and_modify)]
+
 mod day1;
 mod day2;
+mod day3;
+mod day4;
 
 fn main() {
     let mut args = ::std::env::args();
@@ -12,6 +16,10 @@ fn main() {
             day1::run(),
         2 =>
             day2::run(),
+        3 =>
+            day3::run(),
+        4 =>
+            day4::run(),
         _ =>
             panic!("Day {} not implemented yet", day),
     }
