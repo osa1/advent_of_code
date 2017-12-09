@@ -4,6 +4,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 fn main() {
     let mut args = ::std::env::args();
@@ -20,6 +21,8 @@ fn main() {
             day3::run(),
         4 =>
             day4::run(),
+        5 =>
+            day5::run(),
         _ =>
             panic!("Day {} not implemented yet", day),
     }
